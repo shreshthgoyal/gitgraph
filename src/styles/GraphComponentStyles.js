@@ -24,9 +24,8 @@ export const GraphContainer = styled.div`
   padding: 20px;
   border-radius: 16px;
   margin: 20px auto;
-  width: 75vw; // Use vw for responsive width
-  height: auto; // Auto height for flexibility
-  max-height: 55vh;
+  width: 60vw; // Use vw for responsive width
+  height: 50vh; // Auto height for flexibility
   overflow: hidden;
   align-items: start;
   gap: 20px;
@@ -39,7 +38,7 @@ export const GraphContainer = styled.div`
 
 export const GraphSVG = styled.svg`
   flex-shrink: 0;
-  width: 60vw;
+  width: 40vw;
   height: 45vh;
   background-color: #ffffff;
   border-radius: 12px;
@@ -51,20 +50,20 @@ export const GraphSVG = styled.svg`
 `;
 
 export const SidebarContainer = styled.div`
-  flex-grow: 1;
-  max-width: 35vw;
-  height: auto; // Allow dynamic height
+  width: 18vw; // Set a fixed width for the sidebar
+  height: auto; // Set a fixed height to ensure it doesn't resize dynamically
+  max-height: 45vh; // Ensure it doesn't exceed the viewport height
   padding: 20px;
   background: #eceff1;
   border-radius: 12px;
-  overflow-y: auto;
+  overflow-y: auto; // Enable vertical scrolling for overflow content
   display: flex;
   flex-direction: column;
   gap: 15px;
 
-  ${media.desktop`max-width: 40vw;`}
-  ${media.tablet`max-width: 45vw;`}
-  ${media.phone`max-width: 90vw;`};
+  ${media.desktop`width: 30vw;`} // Adjust width for different screen sizes if needed
+  ${media.tablet`width: 35vw;`}
+  ${media.phone`width: 80vw;`}; // On smaller screens, use a larger width
 `;
 
 export const InfoTitle = styled.h4`

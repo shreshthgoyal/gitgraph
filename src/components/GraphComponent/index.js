@@ -106,7 +106,7 @@ const GraphComponent = ({ queryParam }) => {
       .on("mouseout", () => {
         svg.attr("cursor", "grab");
         // Optionally clear on mouseout
-        debouncedDeselectNode();
+        // debouncedDeselectNode();
       });
 
     link
@@ -116,7 +116,7 @@ const GraphComponent = ({ queryParam }) => {
       })
       .on("mouseout", () => {
         svg.attr("cursor", "grab");
-        debouncedDeselectNode();
+        // debouncedDeselectNode();
       });
 
     svg.on("click", () => {
