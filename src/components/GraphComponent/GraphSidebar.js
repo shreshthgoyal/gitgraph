@@ -1,26 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
-  FunctionList,
   InfoContent,
   InfoTitle,
   NeighborWrapper,
   SidebarContainer,
 } from "../../styles/GraphComponentStyles";
+import Check from "../utils/Check";
+import RenderWeights from "../utils/RenderWeights";
 
-const GraphSidebar = ({ data }) => {
-  const renderWeights = (weights) => {
-    if (!weights || weights.length === 0) {
-      return <InfoContent>No functions listed.</InfoContent>;
-    }
-    return (
-      <FunctionList>
-        {weights.map((weight, index) => (
-          <li key={index}>Function: {weight}</li>
-        ))}
-      </FunctionList>
-    );
-  };
-
+const GraphSidebar = ({ data, repo, graph }) => {
   const renderNeighborWeights = (neighborId) => {
     const weights = data.links
       .filter(
@@ -28,7 +17,14 @@ const GraphSidebar = ({ data }) => {
       )
       .map((link) => link.weights || [])
       .flat();
-    return renderWeights(weights);
+    return (
+      <RenderWeights
+        weights={weights}
+        key={neighborId}
+        neighborId={neighborId}
+        graph={graph}
+      />
+    );
   };
 
   return (
@@ -36,7 +32,19 @@ const GraphSidebar = ({ data }) => {
       {data.node && (
         <>
           <InfoTitle>Node Information</InfoTitle>
-          <InfoContent>ID: {data.node.id}</InfoContent>
+          <InfoContent>
+            ID: {data.node.id}
+            <br></br>
+            {/* {console.log(graph.content[data.node.id])} */}
+            File:{" "}
+            <Link
+              to={`https://github.com/${repo}/blob/main/${data.node.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Here
+            </Link>
+          </InfoContent>
         </>
       )}
 
@@ -45,11 +53,33 @@ const GraphSidebar = ({ data }) => {
           <InfoTitle>Link Information</InfoTitle>
           <InfoContent>
             Source: {data.link.source.id || data.link.source}
+            <br></br>
+            File:{" "}
+            <Link
+              to={`https://github.com/${repo}/blob/main/${
+                data.link.source.id || data.link.source
+              }`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Here
+            </Link>
           </InfoContent>
           <InfoContent>
             Target: {data.link.target.id || data.link.target}
+            <br></br>
+            File:{" "}
+            <Link
+              to={`https://github.com/${repo}/blob/main/${
+                data.link.target.id || data.link.target
+              }`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Here
+            </Link>
           </InfoContent>
-          {renderWeights(data.link.weights || [])}
+          {/* {renderWeights(data.link.weights || [])} */}
         </>
       )}
 
@@ -58,8 +88,23 @@ const GraphSidebar = ({ data }) => {
           <InfoTitle>Neighbors</InfoTitle>
           {data.neighbors.map((neighbor, index) => (
             <NeighborWrapper key={index}>
-              <InfoContent>ID: {neighbor.id}</InfoContent>
-              {renderNeighborWeights(neighbor.id)}
+              {Check(neighbor.id, data.links, graph) ? (
+                <>
+                  <InfoContent>
+                    ID: {neighbor.id}
+                    <br></br>
+                    File:{" "}
+                    <Link
+                      to={`https://github.com/${repo}/blob/main/${neighbor.id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View Here
+                    </Link>
+                  </InfoContent>
+                  {renderNeighborWeights(neighbor.id)}
+                </>
+              ) : null}
             </NeighborWrapper>
           ))}
         </>

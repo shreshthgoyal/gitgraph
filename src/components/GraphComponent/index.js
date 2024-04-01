@@ -50,6 +50,7 @@ const GraphComponent = ({ queryParam }) => {
       .zoom()
       .scaleExtent([1 / 4, 4])
       .on("zoom", (event) => g.attr("transform", event.transform));
+
     svg.call(zoom);
 
     const simulation = d3
@@ -93,10 +94,9 @@ const GraphComponent = ({ queryParam }) => {
       .style("fill", "#fff")
       .style("font-size", "10px");
 
-    // Improved event handling to reduce flickering
     node
       .on("click", (event, d) => {
-        event.stopPropagation(); // Prevent triggering svg's click
+        event.stopPropagation();
         selectNode(d);
       })
       .on("mouseover", (event, d) => {
@@ -105,18 +105,14 @@ const GraphComponent = ({ queryParam }) => {
       })
       .on("mouseout", () => {
         svg.attr("cursor", "grab");
-        // Optionally clear on mouseout
-        // debouncedDeselectNode();
       });
 
     link
       .on("mouseover", (event, d) => {
-        // Reduce rapid state updates to mitigate flickering
         debouncedSelectLink(d);
       })
       .on("mouseout", () => {
         svg.attr("cursor", "grab");
-        // debouncedDeselectNode();
       });
 
     svg.on("click", () => {
@@ -149,9 +145,6 @@ const GraphComponent = ({ queryParam }) => {
 
   // Debounced functions
   const debouncedSelectNode = debounce((node) => selectNode(node));
-  const debouncedDeselectNode = debounce(() =>
-    setSelectedData({ node: null, link: null, neighbors: [] })
-  );
   const debouncedSelectLink = debounce((link) =>
     setSelectedData((prev) => ({ ...prev, link: link, node: null }))
   );
@@ -197,7 +190,7 @@ const GraphComponent = ({ queryParam }) => {
   return (
     <GraphContainer>
       <GraphSVG ref={svgRef} width="960" height="600" />
-      <GraphSidebar data={selectedData} />
+      <GraphSidebar data={selectedData} repo={queryParam} graph={graphData} />
     </GraphContainer>
   );
 };

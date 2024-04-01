@@ -2,7 +2,7 @@ import React from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import GraphPage from "./components/GraphPage";
 import LandingPage from "./components/LandingPage";
-import {GlobalStyle} from "./styles/GlobalStyle";
+import { GlobalStyle } from "./styles/GlobalStyle";
 
 const App = () => {
   return (

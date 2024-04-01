@@ -132,3 +132,14 @@ export const StyledButton = styled.button`
     background-color: #8d6e63;
   }
 `;
+export const StyledPre = styled.pre`
+  max-height: 400px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+`;
