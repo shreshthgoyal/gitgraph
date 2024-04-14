@@ -1,6 +1,11 @@
 const ExtractFunction = (code, functionName) => {
   if (code) {
-    const functionStart = new RegExp(`def ${functionName}\\(`, "g");
+    const escapeRegExp = (string) => {
+      return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    };
+
+    const sanitizedFunctionName = escapeRegExp(functionName);
+    const functionStart = new RegExp(`def ${sanitizedFunctionName}\\(`, "g");
     const matches = [...code.matchAll(functionStart)];
 
     if (matches.length == 0) {
