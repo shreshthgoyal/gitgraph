@@ -1,70 +1,128 @@
-# Getting Started with Create React App
+<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+<a name="readme-top"></a>
+<div align="center">
+  <h3 align="center">GitGraph</h3>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <p align="center">
+    An innovative tool for dynamic visualization of Python codebases.
+    <br />
+    <a href="https://github.com/shreshthgoyal/gitgraph">View Demo</a>
+    ·
+    <a href="https://github.com/shreshthgoyal/gitgraph/issues/new?labels=bug">Report Bug</a>
+    ·
+    <a href="https://github.com/shreshthgoyal/gitgraph/issues/new?labels=enhancement">Request Feature</a>
+  </p>
+</div>
 
-## Available Scripts
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li><a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
-In the project directory, you can run:
+## About The Project
 
-### `npm start`
+![](https://i.ibb.co/RjFDsJp/image.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+GitGraph dynamically generates interactive visualizations of dependencies and relationships within a Python codebase, leveraging Tree-sitter for parsing and d3.js for rendering.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Built With
 
-### `npm test`
+* [Tree-sitter](https://tree-sitter.github.io/tree-sitter/)
+* [d3.js](https://d3js.org/)
+* [Python](https://www.python.org/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Node.js and npm
+  ```sh
+  npm install npm@latest -g
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1.  Clone the GitGraph repo
 
-### `npm run eject`
+    `git clone https://github.com/shreshthgoyal/gitgraph.git` 
+    
+2.  Install NPM packages
+    
+    `npm install` 
+    
+3.  Start the project
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    `npm start` 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Usage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+GitGraph is designed with an intuitive interface to offer a seamless experience in visualizing and understanding Python codebases. To get started with GitGraph, follow these simple steps:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **Codebase Selection**: Add the Python codebase's GitHub username and repository name in the designated fields. This action initiates the visualization process, allowing GitGraph to dynamically generate an interactive graph of the codebase.
 
-## Learn More
+2. **Interactive Graph Navigation**:
+   - **Drag and Place**: The nodes representing functions, classes, and files in the graph are interactive. You can drag and position them anywhere on the canvas to organize the view according to your preference.
+   - **Zoom**: Use the zoom in and out features to adjust the graph's view. This functionality allows you to focus on specific details or get an overview of the entire codebase structure.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. **Detailed Analysis**:
+   - **Sidebar Information**: Hovering over nodes and links activates a sidebar that displays detailed information, such as the list of neighbor nodes and the functions imported from each file. This feature provides quick insights into the codebase's structure and dependencies.
+   - **Hyperlinks**: Each file represented in the graph is hyperlinked to its respective location in the GitHub repository. This direct link enables quick access to the source code for in-depth analysis.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. **Function Definitions**:
+   - **Quick View Modal**: Clicking on a function node within the graph opens a modal window displaying the function's definition. This quick view feature allows for an immediate understanding of the function's purpose and implementation without navigating away from the graph.
 
-### Code Splitting
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Roadmap
 
-### Analyzing the Bundle Size
+-   Add support for additional programming languages
+-   Introduce more interactive features
+-   Optimize performance
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Making a Progressive Web App
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Contributions are greatly appreciated. For any contributions, please fork the repo and create a pull request.
 
-### Advanced Configuration
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## License
 
-### Deployment
+Distributed under the MIT License. See `LICENSE` for more information.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### `npm run build` fails to minify
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Shreshth Goyal - [@shreshthg30](https://twitter.com/shreshthg30)
+
+Project Link: [https://github.com/shreshthgoyal/gitgraph](https://github.com/shreshthgoyal/gitgraph)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Acknowledgments
+
+-   [Node.js](https://nodejs.org/)
+-   [npm](https://npmjs.com/)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
